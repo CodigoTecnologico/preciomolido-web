@@ -1,0 +1,24 @@
+@use '../abstracts' as *;
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 10px 20px; border-radius: var(--radius); font-weight: 600;
+  font-size: .9rem; border: none; transition: all var(--transition);
+  text-decoration: none; gap: 6px; cursor: pointer;
+
+  &.btn-sm { padding: 6px 12px; font-size: .8rem; }
+  &.btn-xs { padding: 3px 8px; font-size: .7rem; }
+  &.btn-full { width: 100%; padding: 12px; font-size: 1rem; }
+
+  &.btn-primary { background: var(--primary); color: #fff;
+    &:hover { background: var(--primary-hover); box-shadow: $shadow-md; } }
+  &.btn-ghost { background: transparent; color: var(--gray-600);
+    &:hover { background: var(--gray-100); } }
+  &.btn-danger { background: var(--danger); color: #fff; }
+}
+
+.btn-icon {
+  background: none; border: none; font-size: 1.2rem;
+  padding: 6px; border-radius: 50%; width: 34px; height: 34px;
+  @include flex-center;
+  &:hover { background: var(--gray-100); }
+}

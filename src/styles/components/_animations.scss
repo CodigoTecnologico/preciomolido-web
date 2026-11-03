@@ -1,0 +1,117 @@
+/* ==================== TRANSICIONES SUAVES ==================== */
+
+/* Paneles */
+.panel.active {
+  animation: fadeInUp 0.35s cubic-bezier(.4, 0, .2, 1);
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Tarjetas con hover elevado */
+.price-card,
+.mk-card {
+  will-change: transform, box-shadow;
+}
+
+/* Aparición en cascada de tarjetas */
+.price-cards-grid > *,
+.marketplace-grid > * {
+  animation: cardAppear 0.4s cubic-bezier(.4, 0, .2, 1) backwards;
+}
+.price-cards-grid > *:nth-child(1)  { animation-delay: 0ms; }
+.price-cards-grid > *:nth-child(2)  { animation-delay: 40ms; }
+.price-cards-grid > *:nth-child(3)  { animation-delay: 80ms; }
+.price-cards-grid > *:nth-child(4)  { animation-delay: 120ms; }
+.price-cards-grid > *:nth-child(5)  { animation-delay: 160ms; }
+.price-cards-grid > *:nth-child(6)  { animation-delay: 200ms; }
+.price-cards-grid > *:nth-child(7)  { animation-delay: 240ms; }
+.price-cards-grid > *:nth-child(8)  { animation-delay: 280ms; }
+.price-cards-grid > *:nth-child(9)  { animation-delay: 320ms; }
+.price-cards-grid > *:nth-child(10) { animation-delay: 360ms; }
+.price-cards-grid > *:nth-child(11) { animation-delay: 400ms; }
+.price-cards-grid > *:nth-child(12) { animation-delay: 440ms; }
+
+@keyframes cardAppear {
+  from { opacity: 0; transform: translateY(8px) scale(.98); }
+  to   { opacity: 1; transform: translateY(0)    scale(1); }
+}
+
+/* Modales */
+.modal {
+  animation: fadeIn 0.2s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.modal-content {
+  animation: modalPop 0.25s cubic-bezier(.34, 1.56, .64, 1);
+}
+@keyframes modalPop {
+  from { opacity: 0; transform: scale(.92) translateY(10px); }
+  to   { opacity: 1; transform: scale(1)   translateY(0); }
+}
+
+/* Toasts */
+.toast {
+  animation: toastSlide 0.3s cubic-bezier(.4, 0, .2, 1), fadeOut 0.3s 3.7s ease forwards;
+}
+@keyframes toastSlide {
+  from { transform: translateX(110%); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+
+/* Dropdown menú */
+.user-dropdown-menu {
+  animation: dropdownFade 0.2s ease;
+}
+@keyframes dropdownFade {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Botones con hover */
+.btn {
+  transition: all var(--transition);
+}
+.btn:active {
+  transform: scale(.97);
+}
+
+/* Filtros activos */
+.filter-group select:focus,
+.filter-group input:focus {
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+/* Link activo en nav con underline animado */
+.nav-link {
+  position: relative;
+}
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  width: 20px;
+  height: 2px;
+  background: var(--primary);
+  border-radius: 2px;
+  transform: translateX(-50%);
+  animation: navUnderline 0.3s ease;
+}
+@keyframes navUnderline {
+  from { width: 0; }
+  to   { width: 20px; }
+}
+
+/* Reducir movimiento si el usuario lo pide */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

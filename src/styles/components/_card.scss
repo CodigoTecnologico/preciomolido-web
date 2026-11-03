@@ -1,0 +1,101 @@
+.price-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.price-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.05);
+  border: 1px solid var(--gray-100);
+  transition: transform var(--transition), box-shadow var(--transition);
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+.price-card:hover { transform: translateY(-2px); box-shadow: 0 4px 6px -1px rgba(0,0,0,.1); }
+.price-card.atipico { border-left: 4px solid var(--danger); }
+.price-card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; gap: 8px; }
+.price-card-material { font-weight: 700; font-size: 1rem; color: var(--gray-900); }
+.meta { font-size: .85rem; color: var(--gray-500); }
+.price-card-precio { font-size: 1.8rem; font-weight: 800; color: var(--primary); line-height: 1; word-break: break-word; }
+.price-card-unidad { font-size: .8rem; color: var(--gray-400); font-weight: 400; }
+.price-card-rango { font-size: .8rem; color: var(--gray-500); margin-top: 4px; }
+.price-card-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: .75rem;
+  color: var(--gray-400);
+  border-top: 1px solid var(--gray-100);
+  padding-top: 10px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.price-card-historial {
+  font-size: .75rem;
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: underline;
+  background: none;
+  border: none;
+  padding: 8px 0;
+  margin-top: 6px;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+.price-card-calidad { display: flex; align-items: center; gap: 4px; font-size: .7rem; margin-top: 6px; }
+.calidad-verificada { color: var(--success); }
+.calidad-atipica { color: var(--danger); }
+
+.price-card-badge {
+  font-size: .65rem;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.badge-compra { background: var(--success-light); color: var(--success); }
+.badge-venta { background: var(--warning-light); color: var(--warning); }
+
+.price-card-tendencia {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 600;
+  font-size: .8rem;
+  padding: 3px 6px;
+  border-radius: 4px;
+  margin-top: 6px;
+}
+.tendencia-up { color: var(--success); background: var(--success-light); }
+.tendencia-down { color: var(--danger); background: var(--danger-light); }
+.tendencia-stable { color: var(--gray-500); background: var(--gray-100); }
+
+/* ==================== MÓVIL ==================== */
+@media (max-width: 768px) {
+  .price-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .price-card {
+    padding: 16px;
+  }
+  .price-card-precio {
+    font-size: 1.6rem;
+  }
+  .price-card-material {
+    font-size: .95rem;
+  }
+  .meta {
+    font-size: .8rem;
+  }
+}

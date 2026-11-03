@@ -1,0 +1,57 @@
+/* ==================== FIXES GLOBALES MÓVILES ==================== */
+
+/* Evitar scroll horizontal accidental */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
+}
+
+/* Mejorar áreas táctiles en móvil */
+@media (max-width: 768px) {
+  /* Botones más grandes para dedos */
+  .btn {
+    min-height: 44px;
+    padding: 10px 16px;
+  }
+  
+  /* Inputs más grandes (evita zoom automático en iOS al hacer focus) */
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  input[type="password"],
+  select,
+  textarea {
+    font-size: 16px !important;
+    min-height: 44px;
+  }
+  
+  /* Paneles: padding uniforme */
+  .panel {
+    padding: 0;
+  }
+  .main-content {
+    padding: 16px 12px;
+    gap: 12px;
+  }
+  
+  /* Headers más compactos */
+  .panel-header h1, 
+  .panel-header h2 {
+    font-size: 1.3rem;
+    line-height: 1.3;
+  }
+  .panel-header .subtitle {
+    font-size: 0.85rem;
+  }
+  
+  /* Ad containers se ajustan */
+  .ad-container {
+    margin-left: 0;
+    margin-right: 0;
+    border-radius: 0;
+  }
+  .ad-hero, .ad-footer {
+    max-width: 100%;
+  }
+}

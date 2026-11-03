@@ -1,0 +1,28 @@
+@use '../abstracts' as *;
+.footer {
+  background: var(--white); border-top: 1px solid var(--gray-200);
+  padding: 30px 0 20px; margin-top: auto;
+}
+.footer-grid {
+  display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 30px; margin-bottom: 20px;
+  @include mobile { grid-template-columns: 1fr; gap: 20px; }
+}
+.footer-col {
+  h4 { margin-bottom: 10px; font-size: .95rem; }
+  p  { color: var(--gray-500); font-size: .85rem; }
+  a  { display: block; color: var(--gray-500); text-decoration: none;
+       font-size: .85rem; margin-bottom: 4px;
+       &:hover { color: var(--primary); } }
+}
+.footer-disclaimer {
+  text-align: center; color: var(--gray-400); font-size: .7rem;
+  font-style: italic; border-top: 1px solid var(--gray-200); padding-top: 14px;
+}
+.whatsapp-float {
+  position: fixed; bottom: 20px; right: 20px; background: #25d366;
+  color: #fff; width: 50px; height: 50px; border-radius: 50%;
+  @include flex-center; font-size: 1.5rem; text-decoration: none;
+  box-shadow: $shadow-lg; z-index: 150; transition: transform var(--transition);
+  &:hover { transform: scale(1.1); }
+  @include mobile { width: 44px; height: 44px; font-size: 1.3rem; }
+}

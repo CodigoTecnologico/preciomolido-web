@@ -1,0 +1,154 @@
+/* ==================== MODAL DE CONTACTO ==================== */
+
+.contacto-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contacto-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--gray-100);
+}
+.contacto-icon {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+.contacto-header h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--gray-900);
+}
+
+/* Bloque de la publicación */
+.contacto-publicacion {
+  background: linear-gradient(135deg, var(--primary-light), var(--gray-50));
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  text-align: center;
+  border: 1px solid var(--primary-light);
+}
+.contacto-tipo {
+  display: inline-block;
+  font-size: .7rem;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.contacto-material {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 4px;
+}
+.contacto-precio {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+/* Tabla de info */
+.contacto-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--gray-100);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.contacto-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  font-size: .85rem;
+  border-bottom: 1px solid var(--gray-100);
+  background: var(--white);
+}
+.contacto-row:last-child {
+  border-bottom: none;
+}
+.contacto-label {
+  color: var(--gray-500);
+  font-weight: 500;
+}
+.contacto-value {
+  color: var(--gray-800);
+  font-weight: 600;
+  text-align: right;
+  max-width: 60%;
+  word-break: break-word;
+}
+
+/* Descripción */
+.contacto-descripcion {
+  background: var(--gray-50);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  font-size: .85rem;
+  color: var(--gray-700);
+  line-height: 1.5;
+}
+
+/* Botón WhatsApp INLINE (no flotante) */
+.btn-whatsapp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #25d366;
+  color: #fff !important;
+  padding: 14px 20px;
+  border-radius: var(--radius);
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all var(--transition);
+  box-shadow: 0 2px 8px rgba(37, 211, 102, .3);
+}
+.btn-whatsapp:hover {
+  background: #128c7e;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, .4);
+}
+.btn-whatsapp:active {
+  transform: translateY(0);
+}
+.btn-whatsapp-icon {
+  font-size: 1.3rem;
+  line-height: 1;
+}
+
+/* Acciones secundarias */
+.contacto-acciones {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.contacto-acciones .btn {
+  padding: 10px 12px;
+  font-size: .85rem;
+  border: 1px solid var(--gray-200);
+}
+.btn-danger-ghost {
+  color: var(--danger);
+}
+.btn-danger-ghost:hover {
+  background: var(--danger-light);
+  border-color: var(--danger);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .contacto-acciones {
+    grid-template-columns: 1fr;
+  }
+  .contacto-precio {
+    font-size: 1.3rem;
+  }
+}

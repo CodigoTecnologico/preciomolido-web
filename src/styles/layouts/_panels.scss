@@ -1,0 +1,136 @@
+.main-content {
+  padding: 24px 16px;
+  flex: 1;
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  max-width: 100%;
+}
+.main-content > section {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+}
+
+.panel {
+  display: none;
+  width: 100%;
+}
+.panel.active {
+  display: block;
+  animation: fadeInUp 0.35s cubic-bezier(.4, 0, .2, 1);
+  width: 100%;
+}
+
+.panel-header { margin-bottom: 20px; text-align: center; }
+.access-message { text-align: center; padding: 30px; color: var(--gray-500); }
+.transparency-note {
+  text-align: center;
+  color: var(--gray-400);
+  font-size: .8rem;
+  font-style: italic;
+  margin: 12px 0;
+  padding: 0 12px;
+}
+
+/* Filters Bar */
+.filters-bar {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  background: var(--white);
+  padding: 16px;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 1px 2px rgba(0,0,0,.05);
+  margin-bottom: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 120px;
+}
+.filter-group label {
+  font-size: .7rem;
+  font-weight: 600;
+  color: var(--gray-500);
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+.filter-group select,
+.filter-group input {
+  padding: 10px;
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius);
+  font-size: .9rem;
+  background: var(--white);
+  color: var(--gray-800);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.view-toggle {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+.pagination-container {
+  margin: 24px 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Chips de filtros */
+.active-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  padding: 0 4px;
+}
+
+@media (max-width: 900px) {
+  .main-content { flex-direction: column; }
+}
+
+@media (max-width: 768px) {
+  /* Filtros apilados en móvil */
+  .filters-bar {
+    flex-direction: column;
+    padding: 12px;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .filter-group {
+    min-width: 100%;
+  }
+  .filter-group select,
+  .filter-group input {
+    padding: 12px;
+    font-size: 16px;
+  }
+  
+  /* Ajuste de los chips */
+  .active-filters {
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .active-filters::-webkit-scrollbar { display: none; }
+  .results-counter {
+    margin-left: 0;
+    width: 100%;
+    margin-top: 4px;
+  }
+}

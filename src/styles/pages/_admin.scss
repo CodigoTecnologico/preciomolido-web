@@ -1,0 +1,19 @@
+@use '../abstracts' as *;
+.admin-tabs {
+  display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap;
+  border-bottom: 2px solid var(--gray-200); padding-bottom: 10px;
+}
+.admin-tab {
+  padding: 8px 16px; background: var(--gray-100); border: 2px solid transparent;
+  border-radius: var(--radius); font-weight: 600; font-size: .85rem;
+  color: var(--gray-600);
+  &.active { background: var(--primary-light); color: var(--primary); border-color: var(--primary); }
+}
+.admin-form { display: flex; flex-direction: column; gap: 14px; }
+.admin-sugerencia-item {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px; border: 1px solid var(--gray-200); border-radius: var(--radius);
+  margin-bottom: 8px; background: var(--white);
+}
+.admin-sugerencia-info { flex: 1; }
+.admin-sugerencia-acciones { display: flex; gap: 8px; }

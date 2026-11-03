@@ -1,0 +1,27 @@
+@use '../abstracts' as *;
+.ad-container {
+  background: var(--white); border: 1px dashed var(--gray-300);
+  border-radius: var(--radius); padding: 12px; text-align: center;
+  margin: 0 auto 20px; max-width: 100%;
+}
+.ad-hero    { max-width: 970px; min-height: 70px; }
+.ad-footer  { max-width: 970px; min-height: 70px; }
+.ad-label   { font-size: .6rem; text-transform: uppercase; letter-spacing: 1px;
+  color: var(--gray-400); margin-bottom: 6px; }
+.ad-placeholder {
+  background: var(--gray-100); border-radius: var(--radius);
+  padding: 16px; color: var(--gray-500); font-size: .85rem;
+}
+.ad-container img { max-width: 100%; display: none; }
+.ad-container img.visible { display: block; margin: 0 auto; }
+
+.ad-sidebar {
+  width: 280px; flex-shrink: 0; position: sticky; top: 90px;
+  align-self: flex-start; background: var(--white);
+  border: 1px dashed var(--gray-300); border-radius: var(--radius-lg);
+  padding: 16px; text-align: center;
+  @include tablet { display: none; }
+}
+.ad-placeholder-sidebar {
+  min-height: 200px; @include flex-center; flex-direction: column; gap: 8px;
+}

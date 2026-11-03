@@ -1,10 +1,6 @@
 import '@/styles/main.scss';
-
 import { io } from 'socket.io-client';
-import { api } from '@/api/client.js';
-import { ENDPOINTS } from '@/api/endpoints.js';
-import { setState, getState } from '@/state/store.js';
-
+import { getState } from '@/state/store.js';
 import { restoreSession } from '@/services/auth.service.js';
 import { fetchMateriales, fetchReportes } from '@/services/reportes.service.js';
 import { fetchMarketplace } from '@/services/marketplace.service.js';
@@ -13,7 +9,6 @@ import { fetchOfertas } from '@/services/ofertas.service.js';
 import { fetchCalificaciones } from '@/services/calificaciones.service.js';
 import { fetchSugerencias } from '@/services/sugerencias.service.js';
 import { renderAllAds } from '@/services/ads.service.js';
-
 import { initHeader, updateUserUI } from '@/ui/layouts/header.js';
 import { initNav } from '@/ui/layouts/nav.js';
 import { initFooter } from '@/ui/layouts/footer.js';
@@ -22,13 +17,10 @@ import { initOfflineDetection } from '@/ui/components/offline.js';
 
 async function bootstrap() {
   initOfflineDetection();
-  // Tema
   document.documentElement.setAttribute('data-theme', getState().theme);
-
-  // Sesión
+  
   await restoreSession();
-
-  // Datos base en paralelo
+  
   try {
     await Promise.all([
       fetchMateriales(),
@@ -45,16 +37,20 @@ async function bootstrap() {
     console.error(err);
   }
 
-  // UI
   initHeader();
   initNav();
   initFooter();
   updateUserUI();
   renderAllAds('dashboard');
 
-  // Socket.io
   try {
-    const socket = io();
+    // Conectar Socket.io al backend de Render en producción
+    const socketUrl = import.meta.env.VITE_API_URL 
+      ? import.meta.env.VITE_API_URL.replace('/api', '') 
+      : undefined;
+      
+    const socket = io(socketUrl);
+    
     socket.on('nuevo_reporte', async () => {
       await fetchReportes();
       if (getState().activePanel === 'dashboard') {
@@ -69,7 +65,9 @@ async function bootstrap() {
         renderMarketplace();
       }
     });
-  } catch (e) { console.warn('Socket no disponible'); }
+  } catch (e) { 
+    console.warn('Socket no disponible'); 
+  }
 }
 
 document.addEventListener('DOMContentLoaded', bootstrap);

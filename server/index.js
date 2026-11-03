@@ -9,16 +9,27 @@ import {
   alerts, offers, ratings, sellerReports, suggestions,
 } from './mockData.js';
 
-const PORT = 3000;
-const ADMIN_KEY = 'admin123';
-const JWT_SECRET = 'preciomolido-dev-secret';
+const PORT = process.env.PORT || 3000;
+const ADMIN_KEY = process.env.ADMIN_KEY || 'admin123';
+const JWT_SECRET = process.env.JWT_SECRET || 'preciomolido-dev-secret';
 
 const app = express();
-app.use(cors());
+// Configuración de CORS para permitir Vercel
+app.use(cors({ 
+  origin: process.env.CORS_ORIGIN || '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
 app.use(express.json({ limit: '10mb' }));
 
 const server = http.createServer(app);
-const io = new SocketServer(server, { cors: { origin: '*' } });
+// Configuración de Socket.io para permitir Vercel
+const io = new SocketServer(server, { 
+  cors: { 
+    origin: process.env.CORS_ORIGIN || '*',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'] 
+  } 
+});
 
 function auth(req, res, next) {
   const h = req.headers.authorization;
@@ -179,10 +190,6 @@ io.on('connection', (socket) => {
 
 server.listen(PORT, () => {
   console.log('');
-  console.log('🚀 Backend corriendo en http://localhost:' + PORT);
-  console.log('   Admin key: ' + ADMIN_KEY);
-  console.log('   Usuarios demo:');
-  console.log('     • acopiador@demo.com   / demo123');
-  console.log('     • recicladora@demo.com / demo123');
+  console.log('🚀 Backend corriendo en el puerto ' + PORT);
   console.log('');
 });

@@ -1,4 +1,5 @@
-const B = `${window.location.origin}/api`;
+const B = import.meta.env.VITE_API_URL || `${window.location.origin}/api`;
+
 export const ENDPOINTS = {
   login: `${B}/login`, registro: `${B}/registro`,
   reportes: `${B}/reportes`, materiales: `${B}/materiales`,

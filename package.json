@@ -12,14 +12,13 @@
   },
   "dependencies": {
     "chart.js": "^4.4.0",
-    "socket.io-client": "^4.7.2",
-    "express": "^4.21.0",
     "cors": "^2.8.5",
+    "express": "^4.21.0",
     "jsonwebtoken": "^9.0.2",
-    "socket.io": "^4.7.5"
-  },
-  "devDependencies": {
     "sass": "^1.77.0",
+    "socket.io": "^4.7.5",
+    "socket.io-client": "^4.7.2",
     "vite": "^5.4.0"
-  }
+  },
+  "devDependencies": {}
 }
